@@ -3,7 +3,7 @@
  * Source: https://medium.com/@piyalidas.it/angular-theme-integration-using-dynamically-load-css-1617147799bf
  */
 
-import { Component, Inject, Renderer2, isDevMode } from '@angular/core';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import * as stylex from '@stylexjs/stylex';
@@ -40,8 +40,6 @@ export class AppComponent {
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document
   ) {
-    debugger;
-
     if(environment.production)
       console.log('PRODUCTION MODE');
     else
@@ -53,7 +51,6 @@ export class AppComponent {
   }
 
   setTheme(theme: CustomTheme, renderer2: Renderer2) {
-    debugger;
     this.cssFile = `${theme}.css`;
     this.removeExistingThemeStyle(renderer2, this.themeCSSID);
     
@@ -87,7 +84,6 @@ export class AppComponent {
   }
 
   mainHeadingStyles() {
-    //debugger;
     return stylex.props(styles.h1, stylesOverride.h1).className
     //return stylex.props(stylesOverride.h1).className
   }
